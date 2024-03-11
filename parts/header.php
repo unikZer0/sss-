@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/About.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/homepage.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -43,34 +44,28 @@
       referrerpolicy="no-referrer"
     ></script>
   </head>
-  <body> 
+  <body>
     <nav class="navbar">
-        <div class="logo">
-          <h1>logo</h1>
-        </div>
-          <ul class="menu">
-            <li>
-              <a href="homepage.html">Home</a>
-            </li>
-            <li>
-              <a href="#">Product</a>
-              <ul class="submenu">
-                <li><a href="#">Shirt</a></li>
-                <li><a href="#">Pants</a></li>
-                <li><a href="#">Clock</a></li>
-                <li><a href="#">Mobile phone</a></li>
-                <li><a href="#">NoteBook</a></li>
-              </ul>
-            </li>
-            <li><a href="Shopping.html">Store</a></li>
-            <li><a href="#">About US</a></li>
-            <li><a href="#">Login</a></li>
+      <div class="logo">
+        <h1><a class='text-decoration-none' href="index.php">SNM</a></h1>
+      </div>
+      <ul class="menu">
+        <li>
+          <a href="index.php" class="active">Home</a>
+        </li>
+        <li>
+          <a href="#">Product</a>
+          <ul class="submenu">
+            <li><a href="Shopping.php?type=1">Mobile phone</a></li>
+            <li><a href="Shopping.php?type=0">NoteBook</a></li>
           </ul>
+        </li>
+        <li><a href="Shopping.php">Store</a></li>
+        <li><a href="About.html">About US</a></li>
+        <li><a href="login_1/login.php">Login</a></li>
+      </ul>
 
-          <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-          </div>
-        </nav>
-  </body>
-  <script src="js/About.js"></script>
-</html>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
