@@ -12,30 +12,26 @@
 <body>
 
 <a href="index.php">Back</a>
-<form action="" method="post">
 <?php
+
 require_once('db/db.php');
 
 $db = new DB;
 
 $conn = $db->conn;
 
-// Check if product ID is set
 if(isset($_GET['id'])) {
     $product_id = $_GET['id'];
     
-    // Fetch product details from database
     $sql = "SELECT * FROM items WHERE id = $product_id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Output data of each row
         while($row = $result->fetch_assoc()) {
-            // Display product details
             echo "<div class='container'>";
             echo "<div class='card'>";
             echo "<div class='shoeBackground'>";
-            echo "<h1 class='nike'>nike</h1>";
+            echo "<h1 class='nike'>" . $row['name'] . "</h1>";
             echo "<img src='img/logo.png' alt='' class='logo' />";
             echo "</div>";
             echo "<div class='info'>";
@@ -49,8 +45,14 @@ if(isset($_GET['id'])) {
             echo "<h3 class='title'>Product Info</h3>";
             echo "<p class='text'>" . $row['desc'] . "</p>";
             echo "</div>";
+            echo "<label for='quantity'>Quantity:</label>";
+            echo "<input type='number' id='quantity' name='quantity' value='1' min='1'>";
             echo "<div class='buy-price'>";
-            echo "<a href='#' class='buy'><i class='fas fa-shopping-cart'></i>Add to Cart</a>";
+            echo "<form action='order.php' method='post'>";
+            echo "<input type='hidden' name='product_id' value='" . $product_id . "'>";
+            echo "<input type='hidden' name='quantity' value='" . (isset($_POST['quantity']) ? $_POST['quantity'] : 1) . "'>";
+            echo "<button type='submit' name='submit' class='buy'><i class='fas fa-shopping-cart'></i>Buy</button>";
+            echo "</form>";
             echo "<div class='price'>";
             echo "<i class='fas fa-dollar-sign'></i>";
             echo "<h1>" . $row['price'] . "</h1>";
@@ -69,6 +71,5 @@ if(isset($_GET['id'])) {
 
 $conn->close();
 ?>
-</form>
 </body>
 </html>

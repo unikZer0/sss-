@@ -45,27 +45,74 @@
     ></script>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="logo">
-        <h1><a class='text-decoration-none' href="index.php">SNM</a></h1>
-      </div>
-      <ul class="menu">
-        <li>
-          <a href="index.php" class="active">Home</a>
-        </li>
-        <li>
-          <a href="#">Product</a>
-          <ul class="submenu">
-            <li><a href="Shopping.php?type=1">Mobile phone</a></li>
-            <li><a href="Shopping.php?type=0">NoteBook</a></li>
-          </ul>
-        </li>
-        <li><a href="Shopping.php">Store</a></li>
-        <li><a href="About.html">About US</a></li>
-        <li><a href="login_1/login.php">Login</a></li>
-      </ul>
+  <?php
+session_start();
+require_once('db/db.php');
+// if(!isset($_SESSION['login_user'])) {
+//     header("location: login_1/login.php");
+//     exit;
+// }
+$db = new DB;
 
-      <div class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </div>
-    </nav>
+$conn = $db->conn;
+
+if(isset($_SESSION['login_user'])) {
+  $user_id = $_SESSION['login_user'];
+  $sql = "SELECT * FROM users WHERE id = $user_id";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+}
+
+$user_name = isset($_SESSION['login_user']) ? $row['name'] : '<a href="login/Login.php">Login</a>';
+
+
+$dropdown_content = '';
+if ($user_name != '<a href="login/Login.php">Login</a>') {
+    $dropdown_content = "<i class='fas fa-caret-down'></i></a>
+      <ul class='submenu'>
+      <li><a href='Detail_table.php'>ປະຫວັດການຊື້</a></li>
+        <li><a href='logout.php'>Logout</a></li>
+      </ul>";
+}
+$id_admin=$_SESSION['user_or_admin'];
+  // echo "<script>alert(".$id_admin.")</script>";
+$admin = '';
+if ($id_admin== 2) {
+    $admin = "   
+    <li>
+      <a href=''>admin</a>
+      <ul class='submenu'>
+        <li><a href=''>items</a></li>
+        <li><a href=''>user</a></li>
+        <li><a href=''>orderalluser</a></li>
+      </ul>
+    </li>";
+}
+echo "<nav class='navbar'>
+  <div class='logo'>
+    <h1><a class='text-decoration-none' href='index.php'>SNM</a></h1>
+  </div>
+  <ul class='menu'>
+    <li>
+      <a href='index.php' class='active'>Home</a>
+    </li>
+    <li>
+      <a href='Shopping.php'>Product</a>
+      <ul class='submenu'>
+        <li><a href='Shopping.php?type=1'>Mobile phone</a></li>
+        <li><a href='Shopping.php?type=0'>NoteBook</a></li>
+      </ul>
+    </li>
+    $admin
+    <li><a href='About.html'>About US</a></li>
+    <li class='dropdown'>
+      <a href='#' class='dropbtn'>$user_name $dropdown_content</li>
+    </li>
+  </ul>
+
+  <div class='menu-btn'>
+    <i class='fas fa-bars'></i>
+  </div>
+</nav>";
+?>
+

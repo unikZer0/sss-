@@ -1,36 +1,30 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 require_once('../db/db.php');
-
+session_start();
 $db = new DB;
 $conn = $db->conn;
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-// $sql = "SELECT * FROM users WHERE username = ?";
-// $stmt = $conn->prepare($sql);
-// $stmt->bind_param('s', $username);
-// $stmt->execute();
-// $result = $stmt->get_result();
-// $data = $result->fetch_assoc();
-
-// if (isset($data['username'])) {
-//     if (password_verify($password, $data['pass'])) {
-//         $_SESSION['username'] = $data['username'];
-//         header("Location: ../index.php");
-//     } else {
-//         echo "
-//             <script type='text/javascript'>
-//               alert('Login failed. Incorrect password.');
-//               window.location='../login_1/login.php';
-//             </script>";
-//     }
-// } else {
-//     echo "
-//             <script type='text/javascript'>
-//               alert('Login failed. User not found.');
-//               window.location='../login_1/login.php';
-//             </script>";
-// }
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+      
+    $myusername = mysqli_real_escape_string($conn, $_POST['username']);
+    $mypassword = mysqli_real_escape_string($conn, $_POST['password']); 
+      
+    $sql = "SELECT * FROM users WHERE username = ? AND pass = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $myusername, $mypassword);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $count = $result->num_rows;
+      
+    if($count == 1) {
+        $_SESSION['login_user'] = $row['id'];
+        $_SESSION['user_or_admin'] = $row['type_u'];
+        header("location: ../index.php");
+        exit();
+    } else {
+        echo "<script>alert('Your Login Name or Password is invalid'); window.location='../login/Login.php';</script>";
+    }
+}
 ?>

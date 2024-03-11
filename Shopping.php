@@ -31,12 +31,24 @@ if ($type !== null) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo'<div class="card">';
-            echo'<div class="img"><img src="'. $row['img'] .'" alt="" /></div>';
-            echo'<div class="desc d-inline-block text-truncate">'. $row['desc'] .'</div>';
-            echo'<div class="title">'. $row['name'] .'</div>';
-            echo'<div class="box"><div class="price">'. $row['price'] .'</div><button class="btn"><a class="text-decoration-none" href="About.html?id='. $row['id'] .'">Buy Now</a></button> </div>';
-            echo'</div>';     
+            echo '<div class="card">';
+            echo '<div class="img"><img src="'. $row['img'] .'" alt="" /></div>';
+            echo '<div class="desc d-inline-block text-truncate">'. $row['desc'] .'</div>';
+            echo '<div class="title">'. $row['name'] .'</div>';
+            echo '<div class="box">';
+            echo '<div class="price">'. $row['price'] .'</div>';
+            
+            if(isset($_SESSION['login_user'])) {
+                echo '<form action="detile.php" method="get">';
+                echo '<input type="hidden" name="id" value="'. $row['id'] .'">';
+                echo '<button type="submit" class="btn"><a class="text-decoration-none" href="detile.php?id='. $row['id'] .'">Buy Now</a></button>';
+                echo '</form>';
+            } else {
+                echo '<a class="btn" href="login_1/login.php">Login to Buy</a>';
+            }
+            
+            echo '</div>';     
+            echo '</div>';     
         }
     } else {
         echo "0 results";
@@ -57,12 +69,24 @@ else{?>
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo'<div class="card">';
-            echo'<div class="img"><img src="'. $row['img'] .'" alt="" /></div>';
-            echo'<div class="desc d-inline-block text-truncate">'. $row['desc'] .'</div>';
-            echo'<div class="title">'. $row['name'] .'</div>';
-            echo'<div class="box"><div class="price">'. $row['price'] .'</div><button class="btn"><a class="text-decoration-none" href="detile.php?id='. $row['id'] .'">Buy Now</a></button> </div>';
-            echo'</div>';     
+            echo '<div class="card">';
+            echo '<div class="img"><img src="'. $row['img'] .'" alt="" /></div>';
+            echo '<div class="desc d-inline-block text-truncate">'. $row['desc'] .'</div>';
+            echo '<div class="title">'. $row['name'] .'</div>';
+            echo '<div class="box">';
+            echo '<div class="price">'. $row['price'] .'</div>';
+            
+            if(isset($_SESSION['login_user'])) {
+                echo '<form action="detile.php" method="get">';
+                echo '<input type="hidden" name="id" value="'. $row['id'] .'">';
+                echo '<button type="submit" class="btn"><a class="text-decoration-none" href="detile.php?id='. $row['id'] .'">Buy Now</a></button>';
+                echo '</form>';
+            } else {
+                echo '<a class="btn" href="login_1/login.php">Login to Buy</a>';
+            }
+            
+            echo '</div>';     
+            echo '</div>';     
         }
     } else {
         echo "0 results";
