@@ -1,7 +1,7 @@
 <?php
 
-require_once('parts/header.php');
-require_once('db/db.php');
+require_once('../parts/header.php');
+require_once('../db/db.php');
 // if(!isset($_SESSION['login_user'])) {
 //     header("location: login_1/login.php");
 //     exit;
@@ -41,7 +41,7 @@ $result = $conn->query($sql);
                     echo '<button type="submit" class="btn"><a class="text-decoration-none" href="detile.php?id='. $row['id'] .'">Buy Now</a></button>';
                     echo '</form>';
                 } else {
-                    echo '<a class="btn" href="login_1/login.php">Login to Buy</a>';
+                    echo '<a class="btn" href="login/Login.php">Login to Buy</a>';
                 }
                 
                 echo '</div>';     
@@ -57,5 +57,5 @@ $result = $conn->query($sql);
 
 <?php
 $conn->close();
-require_once('parts/footer.php');
+require_once('../parts/footer.php');
 ?>

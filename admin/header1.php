@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homepage.css" />
+    <link rel="stylesheet" href="homepage1.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -63,15 +63,15 @@ if(isset($_SESSION['login_user'])) {
   $row = $result->fetch_assoc();
 }
 
-$user_name = isset($_SESSION['login_user']) ? $row['name'] : '<a href="../login/Login.php">Login</a>';
+$user_name = isset($_SESSION['login_user']) ? $row['name'] : '<a href="login/Login.php">Login</a>';
 
 
 $dropdown_content = '';
 if ($user_name != '<a href="../login/Login.php">Login</a>') {
     $dropdown_content = "<i class='fas fa-caret-down'></i></a>
       <ul class='submenu'>
-      <li><a href='Detail_table.php'>ປະຫວັດການຊື້</a></li>
-        <li><a href='logout.php'>Logout</a></li>
+      <li><a href='../Detail_table.php'>ປະຫວັດການຊື້</a></li>
+        <li><a href='../logout.php'>Logout</a></li>
       </ul>";
 }
 $id_admin=isset($_SESSION['user_or_admin']) ? $_SESSION['user_or_admin'] : ' ';
@@ -82,28 +82,28 @@ if ($id_admin== 2) {
     <li>
       <a href=''>admin</a>
       <ul class='submenu'>
-        <li><a href='../admin/item.php'>items</a></li>
+        <li><a href='item.php'>items</a></li>
         <li><a href=''>user</a></li>
       </ul>
     </li>";
 }
 echo "<nav class='navbar'>
   <div class='logo'>
-    <h1><a class='text-decoration-none' href='index.php'>SNM</a></h1>
+    <h1><a class='text-decoration-none' href='../index.php'>SNM</a></h1>
   </div>
   <ul class='menu'>
     <li>
-      <a href='../home/index.php' class='active'>Home</a>
+      <a href='../index.php' class='active'>Home</a>
     </li>
     <li>
-      <a href='../home/Shopping.php'>Product</a>
+      <a href='Shopping.php'>Product</a>
       <ul class='submenu'>
-        <li><a href='../home/Shopping.php?type=1'>Mobile phone</a></li>
-        <li><a href='../home/Shopping.php?type=0'>NoteBook</a></li>
+        <li><a href='../Shopping.php?type=1'>Mobile phone</a></li>
+        <li><a href='../Shopping.php?type=0'>NoteBook</a></li>
       </ul>
     </li>
     $admin
-    <li><a href='About.html'>About US</a></li>
+    <li><a href='../About.html'>About US</a></li>
     <li class='dropdown'>
       <a href='#' class='dropbtn'>$user_name $dropdown_content</li>
     </li>

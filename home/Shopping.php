@@ -1,6 +1,6 @@
 <?php
-require_once('parts/header.php');
-require_once('db/db.php');
+require_once('../parts/header.php');
+require_once('../db/db.php');
 
 $db = new DB;
 $conn = $db->conn;
@@ -98,5 +98,5 @@ else{?>
 <?php
 }
 $conn->close();
-require_once('parts/footer.php');
+require_once('../parts/footer.php');
 ?>

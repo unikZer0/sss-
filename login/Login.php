@@ -27,11 +27,11 @@
 	</script>
 </head>
 <body>
-  <a href="../index.php">back</a>
+  <a href="../home/index.php">back</a>
   <div class="wrapper">
   <div class="left">
       <h3>Rocket Station</h3>   
-    <img src="img/rocket.png" alt="Rocket_image">
+    <img src="../img/12.jpg" alt="Rocket_image">
   </div>
   <div class="right">
     <div class="tabs">

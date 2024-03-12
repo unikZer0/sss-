@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="css/Detail_table.css">
 <?php
-require_once('parts/header.php');
+require_once('../parts/header.php');
 ?>
 
 <main>
     <section class="my-orders">
     <?php
-require_once('db/db.php');
+require_once('../db/db.php');
 $db = new DB;
 $conn = $db->conn;
 
@@ -50,5 +50,5 @@ if(isset($_SESSION['login_user'])) {
     </section>
 </main>
 <?php
-require_once('parts/footer.php');
+require_once('../parts/footer.php');
 ?>

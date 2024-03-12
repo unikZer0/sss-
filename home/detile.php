@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail</title>
-  <link rel="stylesheet" href="css/detile.css">
+  <link rel="stylesheet" href="../css/detile.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  <script src="js/detile.js"></script>
+  <script src="../js/detile.js"></script>
 </head>
 <body>
 
-<a href="index.php">Back</a>
+<a class="btn btn-primary" href="index.php">Back</a>
 <?php
 
-require_once('db/db.php');
+require_once('../db/db.php');
 
 $db = new DB;
 

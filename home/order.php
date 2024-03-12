@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-Type: text/html; charset=UTF-8');
-require_once('db/db.php');
+require_once('../db/db.php');
 
 $db = new DB;
 $conn = $db->conn;
