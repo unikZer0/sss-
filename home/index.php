@@ -41,7 +41,7 @@ $result = $conn->query($sql);
                     echo '<button type="submit" class="btn"><a class="text-decoration-none" href="detile.php?id='. $row['id'] .'">Buy Now</a></button>';
                     echo '</form>';
                 } else {
-                    echo '<a class="btn" href="login/Login.php">Login to Buy</a>';
+                    echo '<a class="btn" href="../login/Login.php">Login to Buy</a>';
                 }
                 
                 echo '</div>';     

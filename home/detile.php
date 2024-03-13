@@ -45,12 +45,11 @@ if(isset($_GET['id'])) {
             echo "<h3 class='title'>Product Info</h3>";
             echo "<p class='text'>" . $row['desc'] . "</p>";
             echo "</div>";
-            echo "<label for='quantity'>Quantity:</label>";
-            echo "<input type='number' id='quantity' name='quantity' value='1' min='5'>";
-            echo "<div class='buy-price'>";
             echo "<form action='order.php' method='post'>";
+            echo "<label for='quantity'>Quantity:</label>";
+            echo "<input type='number' id='quantity' name='quantity' value='1' min='1'>";
+            echo "<div class='buy-price'>";
             echo "<input type='hidden' name='product_id' value='" . $product_id . "'>";
-            echo "<input type='hidden' name='quantity' value='" . (isset($_POST['quantity']) ? $_POST['quantity'] : 1) . "'>";
             echo "<button type='submit' name='submit' class='buy'><i class='fas fa-shopping-cart'></i>Buy</button>";
             echo "</form>";
             echo "<div class='price'>";

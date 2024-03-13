@@ -20,17 +20,18 @@ if(isset($_SESSION['login_user'])) {
 
     if ($result->num_rows > 0) {
         echo "<h2>ປະຫວັດການຊື້</h2>";
-        echo "<table border='1'>";
-        echo "<thead><tr><th>ID</th><th>ຊື່</th><th>ຈຳນວນ</th><th>ລາຄາ</th><th>การกระทำ</th></tr></thead>";
+        echo "<table style='border: 1px solid black;' border='1'>";
+        echo "<thead><tr><th style='border: 1px solid black;' >ID</th><th style='border: 1px solid black;' >ຊື່</th><th style='border: 1px solid black;' >ຈຳນວນ</th><th style='border: 1px solid black;' >ລາຄາ</th><th style='border: 1px solid black;' >ລາຄາລວມ</th><th style='border: 1px solid black;' >ຍົກເລິກ</th></tr></thead>";
         echo "<tbody>"; // Added tbody tag here
 
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>".$row['id']."</td>";
-            echo "<td>".$row['name']."</td>"; // Corrected item name access
-            echo "<td>".$row['quantity']."</td>";
-            echo "<td>".$row['price']."</td>";
-            echo "<td><a href='delete_order.php?id=".$row['id']."'>ຍົກເລິກ</a></td>";
+            echo "<td style='border: 1px solid black;' >".$row['id']."</td>";
+            echo "<td style='border: 1px solid black;' >".$row['name']."</td>"; // Corrected item name access
+            echo "<td style='border: 1px solid black;' >".$row['quantity']."</td>";
+            echo "<td style='border: 1px solid black;' >".$row['price']."</td>";
+            echo "<td style='border: 1px solid black;' >".$row['total']."</td>";
+            echo "<td style='border: 1px solid black;' ><a href='delete_order.php?id=".$row['id']."'>ຍົກເລິກ</a></td>";
             echo "</tr>";
         }
 
