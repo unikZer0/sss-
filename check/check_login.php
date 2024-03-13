@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($count == 1) {
         $_SESSION['login_user'] = $row['id'];
         $_SESSION['user_or_admin'] = $row['type_u'];
-        header("location: ../index.php");
+        header("location: ../home/index.php");
         exit();
     } else {
         echo "<script>alert('Your Login Name or Password is invalid'); window.location='../login/Login.php';</script>";
