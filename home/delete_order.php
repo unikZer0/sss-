@@ -9,7 +9,7 @@ if(isset($_GET['id'])) {
     $sql = "DELETE FROM orders WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('ຍົກເລິກແລ້ວ'); window.location='delete_table.php';</script>";
+        echo "<script>alert('ຍົກເລິກແລ້ວ'); window.location='./Detail_table.php';</script>";
     } else {
         echo "error: " . $conn->error;
     }

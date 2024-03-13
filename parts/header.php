@@ -70,7 +70,7 @@ $dropdown_content = '';
 if ($user_name != '<a href="../login/Login.php">Login</a>') {
     $dropdown_content = "<i class='fas fa-caret-down'></i></a>
       <ul class='submenu'>
-      <li><a href='Detail_table.php'>ປະຫວັດການຊື້</a></li>
+      <li><a href='./Detail_table.php'>ປະຫວັດການຊື້</a></li>
         <li><a href='logout.php'>Logout</a></li>
       </ul>";
 }
