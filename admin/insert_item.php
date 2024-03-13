@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
     $type = mysqli_real_escape_string($conn, $_POST['type']);
 
     // Handle image upload
-    $targetDir = "../uploads"; 
+    $targetDir = "../img/"; 
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));

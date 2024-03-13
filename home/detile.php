@@ -30,9 +30,9 @@ if(isset($_GET['id'])) {
         while($row = $result->fetch_assoc()) {
             echo "<div class='container'>";
             echo "<div class='card'>";
-            echo "<div class='shoeBackground'>";
+            echo "<img class='shoeBackground' src=". $row['img'] ." alt=''>";
+            echo "<div class=''>";
             echo "<h1 class='nike'>" . $row['name'] . "</h1>";
-            echo "<img src='img/logo.png' alt='' class='logo' />";
             echo "</div>";
             echo "<div class='info'>";
             echo "<div class='shoeName'>";
@@ -46,7 +46,7 @@ if(isset($_GET['id'])) {
             echo "<p class='text'>" . $row['desc'] . "</p>";
             echo "</div>";
             echo "<label for='quantity'>Quantity:</label>";
-            echo "<input type='number' id='quantity' name='quantity' value='1' min='1'>";
+            echo "<input type='number' id='quantity' name='quantity' value='1' min='5'>";
             echo "<div class='buy-price'>";
             echo "<form action='order.php' method='post'>";
             echo "<input type='hidden' name='product_id' value='" . $product_id . "'>";
